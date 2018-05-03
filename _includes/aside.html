@@ -1,0 +1,55 @@
+<aside class="b-aside">
+
+  <header role="banner">
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    {%- if page_paths -%}
+      <nav>
+        {%- for path in page_paths -%}
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+          {%- if my_page.title -%}
+            <a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+
+
+
+  </header>
+
+  <div class="posts">
+    {%- if site.posts.size > 0 -%}
+      <div class="posts-list">
+        <h3 class="list-title">Latest articles</h3>
+        <ul>
+          {%- for post in site.posts -%}
+          <li>
+            <h3 class="article-title">
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h3>
+
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            <p class="excerpt">{{ post.excerpt | strip_html }}</p>
+            <span class="date">{{ post.date | date: date_format }}</span>
+          </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <footer class="h-card">
+    <data class="u-url" href="{{ "/" | relative_url }}"></data>
+    <p>© Luis Emilio Velasco Sánchez</p>
+    <p>Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  </footer>
+
+</aside>

@@ -1,0 +1,44 @@
+---
+layout: base
+---
+<article class="b-post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  {%- if page.image -%}
+    <div class="header-image" style="background-image: url({{ page.image }}); {%- if page.image_x_position -%} background-position-x: {{ page.image_x_position }}; {%- endif -%}{%- if page.image_y_position -%} background-position-y: {{ page.image_y_position }}; {%- endif -%}"></div>
+  {%- endif -%}
+
+  <div class="content">
+    <div class="wrapper">
+      <header>
+        <h1 class="p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="date">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+          {%- if page.author -%}
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+          {%- endif -%}
+          {% for tag in page.tags %}
+            <a href="{% link _pages/posts.html %}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </p>
+      </header>
+
+      <div class="e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="wrapper">
+      {%- include element/e_twitter_share.html -%}
+      {%- include element/e_github_edit.html -%}
+    </div>
+  </footer>
+</article>

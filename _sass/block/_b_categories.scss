@@ -1,0 +1,79 @@
+.b-categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+
+  >.category {
+    position: relative;
+    flex: 1 1 auto;
+    width: 300px;
+    min-height: 300px;
+    padding: 20px;
+    margin: 20px;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(#000, 0.3);
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      mix-blend-mode: color;
+      z-index: 2;
+      border-radius: 4px;
+    }
+
+    &[data-category="blog"] {
+      background-image: url("/assets/images/blog.jpg");
+      &:after {
+        background: linear-gradient(135deg, $brand-color 0%, $brand-color-2 100%);
+      }
+
+    }
+
+    &[data-category="hockey-sobre-patines"] {
+      background-image: url("/assets/images/hockey-sobre-patines.jpg");
+      &:after {
+        background: linear-gradient(135deg, $brand-color-3 0%, $brand-color-2 100%);
+      }
+    }
+
+    >.content {
+      position: absolute;
+      z-index: 3;
+
+      h2 {
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: #fff;
+        line-height: 1em;
+        text-shadow: 0 1px 3px rgba(#000, 0.6);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 8px;
+        margin-right: 5px;
+        line-height: 1em;
+        background: rgba(#fff, 0.8);
+        border: 1px solid darken(#fff, 20%);
+        color: lighten(#000, 10%);
+        border-radius: 4px;
+        transition: background ease-in 0.2s;
+
+
+        &:hover {
+          background: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.e-twitter-share {
+  font-size: 0.9em;
+  border: 1px solid #1da1f2;
+  border-radius: 20px;
+  padding: 4px 10px;
+  color: #1da1f2;
+  transition: background ease-in 0.2s;
+
+
+  .svg-icon {
+    fill: #1da1f2;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #1da1f2;
+    background: rgba(#fff, 0.9);
+  }
+
+}

@@ -1,0 +1,51 @@
+.b-tags {
+
+  .tag-group {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba($brand-color, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      color: lighten($text-color, 20%);
+      letter-spacing: 1px;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 20px;
+
+        .title {
+          display: block;
+          color: $brand-color;
+          font-family: $base-font-family-title;
+          font-size: 18px;
+        }
+
+        .date {
+          font-size: 0.8em;
+          &:after {
+            content: '·';
+            margin-left: 5px;
+            font-weight: bold;
+          }
+        }
+
+        .tag {
+          font-size: 0.9em;
+          display: inline-block;
+
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

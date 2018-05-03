@@ -1,0 +1,20 @@
+.e-github-edit {
+  font-size: 0.9em;
+  border: 1px solid #24292e;
+  border-radius: 20px;
+  padding: 4px 10px;
+  color: #24292e;
+  transition: background ease-in 0.2s;
+
+
+  .svg-icon {
+    fill: #24292e;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #24292e;
+    background: rgba(#fff, 0.9);
+  }
+
+}

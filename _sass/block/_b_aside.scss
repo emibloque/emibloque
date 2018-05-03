@@ -1,0 +1,136 @@
+.b-aside {
+  flex: 1 1 300px;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #1c2429;
+  padding: $spacing-unit / 2 $spacing-unit;
+  color: rgba(#fff, 0.8);
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $brand-color-2;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  header {
+    flex: 0 1 auto;
+    text-align: center;
+
+    .site-title {
+      display: block;
+      margin-bottom: 20px;
+      font-family: $base-font-family-title;
+      font-style: italic;
+      font-size: 26px;
+    }
+
+    nav {
+      display: flex;
+      padding: 6px 0;
+      border-top: 1px solid rgba($brand-color-2, 0.3);
+      border-bottom: 1px solid rgba($brand-color-2, 0.3);
+
+      a {
+        flex: 1 1 auto;
+        display: inline-block;
+        font-size: 0.9em;
+        border-left: 1px dotted rgba($brand-color-2, 0.5);
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+  }
+
+  .posts {
+    flex: 1 1 auto;
+    margin: 20px 0px;
+
+    .posts-list {
+      border-left: 1px solid rgba(#fff, 0.4);
+      border-radius: 0 0 0 10px;
+      padding-bottom: 2px;
+
+      .list-title {
+        position: relative;
+        padding-left: 25px;
+        line-height: 26px;
+        letter-spacing: 3px;
+
+        &:after {
+          content: ' ';
+          position: absolute;
+          display: block;
+          width: 25px;
+          height: 25px;
+          top: 0;
+          left: -12.5px;
+          border-radius: 50%;
+
+          background: #1c242a;
+          border-bottom: 1px solid rgba(#fff, 0.4);
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 0;
+
+        li {
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: 15px;
+
+          &:after {
+            content: ' ';
+            position: absolute;
+            display: block;
+            width: 7px;
+            height: 7px;
+            margin-top: 10px;
+            top: 0;
+            left: -4px;
+            border-radius: 50%;
+            background: $brand-color-2;
+          }
+
+          .article-title {
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+          }
+
+          .excerpt {
+            margin-bottom: 5px;
+            font-weight: lighter;
+            font-size: 0.8em;
+            line-height: 1.3em;
+            color: rgba(#fff, 0.6);
+          }
+
+          .date {
+            display: block;
+            font-family: $base-font-family-title;
+            font-style: italic;
+            font-size: 0.8em;
+            color: rgba($brand-color-2, 0.6);
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    flex: 0 1 auto;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: $spacing-unit;
+  }
+}
