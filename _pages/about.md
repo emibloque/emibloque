@@ -3,8 +3,8 @@ layout: page
 title: About
 permalink: /about/
 
-image: "/assets/images/home.jpg"
-image_y_position: top
+image: "/assets/images/about.jpg"
+image_y_position: center
 ---
 
 > Hey!
