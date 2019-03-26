@@ -1,3 +1,16 @@
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -15,10 +28,14 @@
       background-position-y: center;
 
       &:after {
-        content: '';
+        content: "";
         display: block;
         height: 100%;
-        background: linear-gradient(135deg, $brand-color-2 0%, $brand-color-3 100%);
+        background: linear-gradient(
+          135deg,
+          $brand-color-2 0%,
+          $brand-color-3 100%
+        );
         mix-blend-mode: color;
       }
     }

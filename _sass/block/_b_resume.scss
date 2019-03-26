@@ -1,0 +1,22 @@
+.b-resume {
+  padding: 20px;
+  background: $background-color-alternate;
+
+  .sheet {
+    border-radius: 4px;
+    background: #fff;
+    height: 297mm;
+    width: 210mm;
+    padding: 15mm;
+
+    font-size: 9pt;
+
+    @include shadow();
+  }
+}
+
+@media print {
+  .b-resume {
+    padding: 0;
+  }
+}
