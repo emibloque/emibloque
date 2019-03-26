@@ -12,6 +12,59 @@
     font-size: 9pt;
 
     @include shadow();
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+
+      span {
+        flex: 1;
+        margin-left: 2mm;
+        border-bottom: 0.25mm solid $text-color;
+      }
+    }
+
+    .experience {
+      .job {
+        display: flex;
+        align-items: flex-start;
+
+        .logo {
+          max-width: 10mm;
+        }
+
+        .header {
+          display: flex;
+
+          .position {
+            flex: 1 1 auto;
+            margin: 0 4mm;
+          }
+        }
+      }
+    }
+
+    .archived {
+      display: flex;
+      justify-content: space-around;
+
+      .job {
+        text-align: center;
+
+        .logo-wrapper {
+          width: 100%;
+          height: 15mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .logo {
+            max-width: 15mm;
+            max-height: 100%;
+          }
+        }
+      }
+    }
   }
 }
 
