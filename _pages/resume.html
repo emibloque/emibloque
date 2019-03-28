@@ -105,7 +105,23 @@ permalink: /resume/
     </section>
 
     <h2 class="section-title">Side Projects<span></span></h2>
-    <section class="side-projects"></section>
+    <section class="side-projects">
+      {% for project in site.projects reversed %}
+      <section class="project">
+        <div class="logo-wrapper">
+          <img class="logo" src="{{ project.logo }}" alt="{{ project.name }}" />
+        </div>
+
+        <h3 class="name">
+          {{ project.name }}, <span>{{ project.description }}</span>
+        </h3>
+
+        <aside class="year">
+          {{ project.year }}
+        </aside>
+      </section>
+      {% endfor %}
+    </section>
 
     <footer class="footer">References available on request</footer>
   </article>
