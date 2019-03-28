@@ -20,10 +20,17 @@
 
         > .name {
           flex: 1 1 auto;
+          font-size: 26pt;
+          line-height: 32pt;
+          margin: 0;
+
+          > .surname {
+            color: $grey-color;
+            font-style: italic;
+          }
         }
 
         > .portrait {
-          max-width: 25mm;
           max-height: 25mm;
           border-radius: 50%;
         }
