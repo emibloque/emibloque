@@ -57,7 +57,25 @@ permalink: /resume/
     </section>
 
     <h2 class="section-title">Education<span></span></h2>
-    <section class="education"></section>
+    <section class="education">
+      {% for study in site.education reversed %}
+      <section class="study">
+        <img
+          class="logo"
+          src="{{ study.entity_logo }}"
+          alt="{{ study.entity }}"
+        />
+        <div class="title">
+          <h3>{{ study.entity }}</h3>
+          <h4>{{ study.qualification }}</h4>
+        </div>
+        <aside>
+          <h5 class="location">{{ study.location }}</h5>
+          <h5 class="period">{{ study.period }}</h5>
+        </aside>
+      </section>
+      {% endfor %}
+    </section>
 
     <h2 class="section-title">Talks<span></span></h2>
     <section class="talks"></section>
