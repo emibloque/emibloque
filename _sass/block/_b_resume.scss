@@ -11,12 +11,35 @@
     width: 210mm;
     padding: 10mm 15mm;
     font-size: 9pt;
-
     @include shadow();
+
+    > .title {
+      .me {
+        display: flex;
+        align-items: center;
+
+        > .name {
+          flex: 1 1 auto;
+        }
+
+        > .portrait {
+          max-width: 25mm;
+          max-height: 25mm;
+          border-radius: 50%;
+        }
+      }
+
+      > .footer {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2mm;
+      }
+    }
 
     > .section-title {
       display: flex;
       align-items: baseline;
+      margin-top: 2mm;
 
       > span {
         flex: 1;
