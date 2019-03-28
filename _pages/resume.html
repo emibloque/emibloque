@@ -14,11 +14,13 @@ permalink: /resume/
     <section class="experience">
       {% for job in site.experience reversed %} {% unless job.archive %}
       <section class="job">
-        <img
-          class="logo"
-          src="{{ job.company_logo }}"
-          alt="{{ job.company }}"
-        />
+        <div class="logo-wrapper">
+          <img
+            class="logo"
+            src="{{ job.company_logo }}"
+            alt="{{ job.company }}"
+          />
+        </div>
         <div>
           <header class="header">
             <div class="position">
@@ -60,11 +62,13 @@ permalink: /resume/
     <section class="education">
       {% for study in site.education reversed %}
       <section class="study">
-        <img
-          class="logo"
-          src="{{ study.entity_logo }}"
-          alt="{{ study.entity }}"
-        />
+        <div class="logo-wrapper">
+          <img
+            class="logo"
+            src="{{ study.entity_logo }}"
+            alt="{{ study.entity }}"
+          />
+        </div>
         <div class="title">
           <h3>{{ study.entity }}</h3>
           <h4>{{ study.qualification }}</h4>
@@ -78,7 +82,27 @@ permalink: /resume/
     </section>
 
     <h2 class="section-title">Talks<span></span></h2>
-    <section class="talks"></section>
+    <section class="talks">
+      {% for talk in site.talks reversed %}
+      <section class="talk">
+        <div class="logo-wrapper">
+          <img
+            class="logo"
+            src="{{ talk.entity_logo }}"
+            alt="{{ talk.entity }}"
+          />
+        </div>
+
+        <h3 class="title">
+          {{ talk.title }}, <span>{{ talk.entity }}</span>
+        </h3>
+
+        <aside class="location">
+          {{ talk.location }}, {{ talk.talk_date }}
+        </aside>
+      </section>
+      {% endfor %}
+    </section>
 
     <h2 class="section-title">Side Projects<span></span></h2>
     <section class="side-projects"></section>

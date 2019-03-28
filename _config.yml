@@ -36,3 +36,4 @@ include: ["_pages"]
 collections:
   - experience
   - education
+  - talks

@@ -29,8 +29,17 @@
         display: flex;
         align-items: flex-start;
 
-        .logo {
-          max-width: 10mm;
+        .logo-wrapper {
+          width: 10mm;
+          height: 10mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
         }
 
         .header {
@@ -71,8 +80,42 @@
         display: flex;
         align-items: flex-start;
 
-        .logo {
-          max-width: 10mm;
+        .logo-wrapper {
+          width: 10mm;
+          height: 10mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .title {
+          flex: 1 1 auto;
+          margin: 0 4mm;
+        }
+      }
+    }
+
+    .talks {
+      .talk {
+        display: flex;
+        align-items: center;
+
+        .logo-wrapper {
+          width: 10mm;
+          height: 5mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
         }
 
         .title {
