@@ -3,12 +3,13 @@
   background: $background-color-alternate;
 
   > .sheet {
+    display: flex;
+    flex-direction: column;
     border-radius: 4px;
     background: #fff;
     height: 297mm;
     width: 210mm;
-    padding: 15mm;
-
+    padding: 10mm 15mm;
     font-size: 9pt;
 
     @include shadow();
@@ -20,7 +21,7 @@
       > span {
         flex: 1;
         margin-left: 2mm;
-        border-bottom: 0.25mm solid $text-color;
+        border-bottom: 0.3mm solid $text-color;
       }
     }
 
@@ -148,6 +149,13 @@
           margin: 0 4mm;
         }
       }
+    }
+
+    > .footer {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
   }
 }
