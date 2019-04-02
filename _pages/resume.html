@@ -9,79 +9,93 @@ permalink: /resume/
     <header class="title">
       <div class="me">
         <h1 class="name">
-          Luis Emilio <span class="surname">Velasco Sanchez</span>
+          Luis Emilio <span class="surname">Velasco Sánchez</span>
         </h1>
         <img class="portrait" src="/assets/images/me.jpg" alt="Luis Emilio" />
       </div>
       <footer class="footer">
-        <a class="web" href="https://emibloque.me" target="_blank">
-          emibloque.me
+        <a href="https://emibloque.me" target="_blank">
+          https://emibloque.me
         </a>
-        <a class="email" href="mailto:emibloque@gmail.com" target="_blank">
+        <a href="mailto:emibloque@gmail.com" target="_blank">
           emibloque@gmail.com
         </a>
-        <a class="github" href="https://github.com/emibloque" target="_blank">
+        <a href="https://github.com/emibloque" target="_blank">
+          <svg class="svg-icon" viewBox="0 0 16 16">
+            <use
+              xlink:href="{{
+                '/assets/minima-social-icons.svg#github' | relative_url
+              }}"
+            ></use>
+          </svg>
           emibloque
         </a>
-        <a
-          class="linkedin"
-          href="https://www.linkedin.com/in/emibloque/"
-          target="_blank"
-        >
+        <a href="https://www.linkedin.com/in/emibloque/" target="_blank">
+          <svg class="svg-icon" viewBox="0 0 16 16">
+            <use
+              xlink:href="{{
+                '/assets/minima-social-icons.svg#linkedin' | relative_url
+              }}"
+            ></use>
+          </svg>
           emibloque
         </a>
       </footer>
     </header>
 
-    <h2 class="section-title">Experience<span></span></h2>
+    <h2 class="section-title">Experience<span class="line"></span></h2>
     <section class="experience">
-      {% for job in site.experience reversed %} {% unless job.archive %}
-      <section class="job">
-        <div class="logo-wrapper">
-          <img
-            class="logo"
-            src="{{ job.company_logo }}"
-            alt="{{ job.company }}"
-          />
-        </div>
-        <div>
-          <header class="header">
-            <div class="position">
-              <h3>{{ job.company }}</h3>
-              <h4>{{ job.position }}</h4>
-            </div>
-            <aside>
-              <h5 class="location">{{ job.location }}</h5>
-              <h5 class="period">{{ job.period }}</h5>
-            </aside>
-          </header>
-          {{ job.content }}
-        </div>
-      </section>
-      {% endunless %} {% endfor %}
+      {% for job in site.experience reversed %}
+        {% unless job.archive %}
+        <section class="job">
+          <div class="logo-wrapper">
+            <img
+              class="logo"
+              src="{{ job.company_logo }}"
+              alt="{{ job.company }}"
+            />
+          </div>
+          <div class="text">
+            <header class="header">
+              <div class="title">
+                <h3 class="company">{{ job.company }}</h3>
+                <h4 class="position">{{ job.position }}</h4>
+              </div>
+              <aside>
+                <h5 class="location">{{ job.location }}</h5>
+                <h5 class="period">{{ job.period }}</h5>
+              </aside>
+            </header>
+            <section class="content">
+              {{ job.content }}
+            </section>
+          </div>
+        </section>
+        {% endunless %}
+      {% endfor %}
     </section>
 
-    <h2 class="section-title">Other experience<span></span></h2>
+    <h2 class="section-title">Other experience<span class="line"></span></h2>
     <section class="archived">
-      {% for job in site.experience reversed %} {% if job.archive %}
-      <section class="job">
-        <div class="logo-wrapper">
-          <img
-            class="logo"
-            src="{{ job.company_logo }}"
-            alt="{{ job.company }}"
-          />
-        </div>
-        <footer>
-          <h3>{{ job.company }}</h3>
-          <h4>{{ job.position }}</h4>
-          <aside>{{ job.period }}</aside>
-        </footer>
-      </section>
-      {% endif %} {% endfor %}
+      {% for job in site.experience reversed %}
+        {% if job.archive %}
+        <section class="job">
+          <div class="logo-wrapper">
+            <img
+              class="logo"
+              src="{{ job.company_logo }}"
+              alt="{{ job.company }}"
+            />
+          </div>
+          <h3 class="company">{{ job.company }}</h3>
+          <h4 class="position">{{ job.position }}</h4>
+          <aside class="period">{{ job.period }}</aside>
+        </section>
+        {% endif %}
+      {% endfor %}
     </section>
 
-    <h2 class="section-title">Education<span></span></h2>
+    <h2 class="section-title">Education<span class="line"></span></h2>
     <section class="education">
       {% for study in site.education reversed %}
       <section class="study">
@@ -93,8 +107,8 @@ permalink: /resume/
           />
         </div>
         <div class="title">
-          <h3>{{ study.entity }}</h3>
-          <h4>{{ study.qualification }}</h4>
+          <h3 class="entity">{{ study.entity }}</h3>
+          <h4 class="qualification">{{ study.qualification }}</h4>
         </div>
         <aside>
           <h5 class="location">{{ study.location }}</h5>
@@ -104,7 +118,7 @@ permalink: /resume/
       {% endfor %}
     </section>
 
-    <h2 class="section-title">Talks<span></span></h2>
+    <h2 class="section-title">Talks<span class="line"></span></h2>
     <section class="talks">
       {% for talk in site.talks reversed %}
       <section class="talk">
@@ -117,17 +131,21 @@ permalink: /resume/
         </div>
 
         <h3 class="title">
-          {{ talk.title }}, <span>{{ talk.entity }}</span>
+          <a href="{{ talk.url }}">
+            {{ talk.title }}
+            <span class="entity">{{ talk.entity }}</span>
+          </a>
         </h3>
 
         <aside class="location">
-          {{ talk.location }}, {{ talk.talk_date }}
+          {{ talk.location }}
+          <span class="date">{{ talk.date | date: "%b. %Y" }}</span>
         </aside>
       </section>
       {% endfor %}
     </section>
 
-    <h2 class="section-title">Side Projects<span></span></h2>
+    <h2 class="section-title">Side Projects<span class="line"></span></h2>
     <section class="side-projects">
       {% for project in site.projects reversed %}
       <section class="project">
@@ -136,7 +154,10 @@ permalink: /resume/
         </div>
 
         <h3 class="name">
-          {{ project.name }}, <span>{{ project.description }}</span>
+          <a href="{{ project.url }}">
+            {{ project.title }}
+            <span class="description">{{ project.description }}</span>
+          </a>
         </h3>
 
         <aside class="year">
@@ -145,7 +166,5 @@ permalink: /resume/
       </section>
       {% endfor %}
     </section>
-
-    <footer class="footer">References available on request</footer>
   </article>
 </section>

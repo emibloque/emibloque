@@ -34,7 +34,25 @@ permalink: pretty
 include: ["_pages"]
 
 collections:
-  - experience
-  - education
-  - talks
-  - projects
+  experience:
+  education:
+  talks:
+    output: true
+    permalink: /:collection/:title
+  projects:
+    output: true
+    permalink: /:collection/:title
+
+defaults:
+  - scope:
+      path: ""
+      type: "talks"
+    values:
+      layout: "talk"
+      image: /assets/images/talks/commit-conf.jpg
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+      image: /assets/images/projects/default.png

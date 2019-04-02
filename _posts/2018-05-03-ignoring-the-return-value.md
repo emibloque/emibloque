@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ignoring the return value"
-date: 2018-05-03 00:00:00 +0200
+date: 2018-05-03
 categories: blog
 tags: elixir
 

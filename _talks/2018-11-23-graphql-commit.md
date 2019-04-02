@@ -1,7 +1,8 @@
 ---
-entity: Commit Conf
-entity_logo: /assets/images/talks/commit.jpg
+entity: Commit Conf 2018
+entity_logo: /assets/images/logos/commit-conf.jpg
 title: Realtime and microservices with GraphQL
-talk_date: Feb. 2018
+slug: realtime and microservices with graphql at commit conf
+date: 2018-11-23
 location: Madrid, Spain
 ---

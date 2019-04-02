@@ -1,7 +1,8 @@
 ---
-entity: GDG Asturias
-entity_logo: /assets/images/talks/gdg.png
+entity: Google Developer Group Asturias
+entity_logo: /assets/images/logos/gdg.png
 title: Demystifying GraphQL
-talk_date: Jan. 2019
+slug: demystifying graphgl at gdg asturias
+date: 2019-01-24
 location: Gijón, Spain
 ---

@@ -1,10 +1,9 @@
 ---
 company: The Cocktail Experience
-company_logo: /assets/images/companies/tck.jpg
+company_logo: /assets/images/logos/tck.png
 position: Backend Engineer
 period: Dec. 2015 - Jan. 2016
 location: Oviedo, Spain
 ---
 
-- Improved performance in SQL queries for e-commerce applications.
-- Maintained Ruby on Rails web applications. Implemented new frontend designs for product filtering strategies.
+- Maintained _Ruby on Rails_ e-commerce web applications built on top of _Spree_.
