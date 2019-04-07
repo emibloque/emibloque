@@ -9,7 +9,6 @@
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
-    margin-bottom: 20px;
 
     &:after {
       content: '';
@@ -22,6 +21,7 @@
 
   > .content {
     flex: 1 1 auto;
+    margin-top: 20px;
     padding-bottom: 20px;
 
     .page-title {

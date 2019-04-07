@@ -11,34 +11,10 @@
   margin: 0;
 }
 
-.grid {
+body {
   display: flex;
-  flex-wrap: wrap;
-
-  main {
-    flex: 10 1 auto;
-
-    .home-image {
-      width: 100%;
-      min-width: 300px;
-      height: 100vh;
-      background-image: url("/assets/images/home.jpg");
-      background-size: cover;
-      background-position-x: center;
-      background-position-y: center;
-
-      &:after {
-        content: "";
-        display: block;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          $brand-color-2 0%,
-          $brand-color-3 100%
-        );
-        mix-blend-mode: color;
-      }
-    }
+  > main {
+    flex: 1 1 auto;
   }
 }
 

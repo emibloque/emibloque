@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: emibloque.me
-email: hello@emibloque.me
+email: emibloque@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Safe haven
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -26,7 +26,6 @@ twitter_account: emibloque
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
 
 permalink: pretty
@@ -38,10 +37,10 @@ collections:
   education:
   talks:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
   projects:
     output: true
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
 
 defaults:
   - scope:

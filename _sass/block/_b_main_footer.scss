@@ -1,15 +1,7 @@
-.b-aside {
-  flex: 1 1 300px;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  background: #1c2429;
+.b-main-footer {
+  background: $footer-background-color;
   padding: $spacing-unit / 2 $spacing-unit;
   color: rgba(#fff, 0.8);
-
-  p {
-    margin: 0;
-  }
 
   a {
     color: $brand-color-2;
@@ -19,45 +11,26 @@
     }
   }
 
-  header {
-    flex: 0 1 auto;
+  .site-title {
     text-align: center;
-
-    .site-title {
-      display: block;
-      margin-bottom: 20px;
-      font-family: $base-font-family-title;
-      font-style: italic;
-      font-size: 26px;
-    }
-
-    nav {
-      display: flex;
-      padding: 6px 0;
-      border-top: 1px solid rgba($brand-color-2, 0.3);
-      border-bottom: 1px solid rgba($brand-color-2, 0.3);
-
-      a {
-        flex: 1 1 auto;
-        display: inline-block;
-        font-size: 0.9em;
-        border-left: 1px dotted rgba($brand-color-2, 0.5);
-
-        &:first-child {
-          border-left: none;
-        }
-      }
-    }
+    display: block;
+    margin-bottom: 20px;
+    font-family: $base-font-family-title;
+    font-style: italic;
+    font-size: 26px;
   }
 
-  .posts {
-    flex: 1 1 auto;
+  .lists {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin: 20px 0px;
 
-    .posts-list {
+    .list {
       border-left: 1px solid rgba(#fff, 0.4);
       border-radius: 0 0 0 10px;
-      padding-bottom: 2px;
+      max-width: 330px;
 
       .list-title {
         position: relative;
@@ -66,7 +39,7 @@
         letter-spacing: 3px;
 
         &:after {
-          content: ' ';
+          content: " ";
           position: absolute;
           display: block;
           width: 25px;
@@ -90,7 +63,7 @@
           margin-bottom: 15px;
 
           &:after {
-            content: ' ';
+            content: " ";
             position: absolute;
             display: block;
             width: 7px;
@@ -128,7 +101,6 @@
   }
 
   footer {
-    flex: 0 1 auto;
     font-size: 0.8em;
     text-align: center;
     margin-top: $spacing-unit;
