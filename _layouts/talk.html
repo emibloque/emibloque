@@ -2,28 +2,34 @@
 layout: post
 ---
 
-{% if page.youtube_id != nil %}
-<div class="video-container">
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/{{ page.youtube_id }}?rel=0"
-    frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
-{% endif %}
-
-{% if page.slides != nil %}
-<div class="slides-container">
-  <embed
-    src="{{ page.slides }}"
-    width="560"
-    height="315"
-    type="application/pdf"
-  />
-</div>
-{% endif %}
-
 {{ content }}
+
+{% if page.youtube_id != nil or page.slides != nil %}
+<aside class="materials">
+  {% if page.youtube_id != nil %}
+  <h3 class="material-title">Video</h3>
+  <div class="video-container">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/{{ page.youtube_id }}?rel=0"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+  {% endif %} {% if page.slides != nil %}
+  <h3 class="material-title">Slides</h3>
+  <div class="slides-container">
+      <object
+        data="{{ page.slides }}"
+        width="560"
+        height="315"
+        type="application/pdf"
+        typemustmatch>
+        <p>You don't have a PDF plugin, but you can <a href="{{ page.slides }}" target="_blank">download the PDF file.</a></p>
+      </object>
+  </div>
+  {% endif %}
+</aside>
+{% endif %}
