@@ -1,66 +1,24 @@
 ---
 layout: page
-title: Posts
-permalink: /posts/
+title: Blog
+permalink: /blog/
 ---
 
-{% assign tags = "" | split: "" %}
-{% assign combined_tags = "" | split: "" %}
-{% assign categories = "" | split: "" %}
-
-{% for post in site.posts %}
-  {% for tag in post.tags %}
-    {% assign category = post.categories.first %}
-    {% assign combined_tag = tag | prepend: ":" | prepend: category %}
-    {% assign combined_tags = combined_tags | push: combined_tag %}
-
-    {% unless categories contains category %}
-      {% assign categories = categories | push: category %}
-    {% endunless %}
-
-    {% unless tags contains tag %}
-      {% assign tags = tags | push: tag %}
-    {% endunless %}
-  {% endfor %}
-{% endfor %}
-
-{% assign tags = tags | sort %}
-{% assign categories = categories | sort %}
-
-
-<div class="b-categories">
-  {% for category in categories %}
-    <div class="category" data-category="{{ category }}">
-      <div class="content">
-        <h2>{{ category | replace: "-", " " | capitalize }}</h2>
-        {% for combined_tag in combined_tags %}
-          {% assign tag = combined_tag | split: ':' %}
-          {% if tag.first == category %}
-          <a href="#{{ tag.last | slugify }}" class="tag"> {{ tag.last }} </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  {% endfor %}
-</div>
-
-<div class="b-tags">
-  {% for tag in tags %}
-    <div class="tag-group">
-    <h2 id="{{ tag | slugify }}">{{ tag | capitalize }}</h2>
-    <ul>
-      {% for post in site.posts %}
-        {% if post.tags contains tag %}
-        <li>
-          <a class="title" href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date_to_string }}</span>
-          {% for tag in post.tags %}
-            <a href="#{{ tag | slugify }}" class="tag">{{ tag }}</a>
-          {% endfor %}
-        </li>
-        {% endif %}
+<ul class="b-posts-list">
+  {% for post in site.posts reversed %}
+  <li class="post">
+    <h3 class="title">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </h3>
+    <p class="excerpt">{{ post.excerpt | strip_html }}</p>
+    <aside class="aside">
+      <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      {% assign tags_size = post.tags | size %}
+      {% if tags_size != 0 %} • {% endif %}
+      {% for tag in post.tags %}
+      <span class="tag">{{ tag }}</span>
       {% endfor %}
-    </ul>
-    </div>
+    </aside>
+  </li>
   {% endfor %}
-</div>
+</ul>
