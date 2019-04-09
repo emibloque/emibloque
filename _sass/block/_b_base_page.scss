@@ -11,10 +11,14 @@
     background-position-y: center;
 
     &:after {
-      content: '';
+      content: "";
       display: block;
       height: 100%;
-      background: linear-gradient(135deg, $brand-color-3 0%, $brand-color-2 100%);
+      background: linear-gradient(
+        135deg,
+        $brand-color-3 0%,
+        $brand-color-2 100%
+      );
       mix-blend-mode: color;
     }
   }

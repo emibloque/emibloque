@@ -6,4 +6,5 @@ title: Demystifying GraphQL
 slug: demystifying graphgl at gdg asturias
 date: 2019-01-24
 location: Gijón, Spain
+slides: /assets/slides/2019-01-24_graphql_gdg.pdf
 ---
