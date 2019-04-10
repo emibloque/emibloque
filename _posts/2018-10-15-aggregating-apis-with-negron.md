@@ -8,9 +8,9 @@ tags: graphql nodejs microservices
 image: "/assets/images/posts/aggregating-apis-with-negron/aaron-burden-718998-unsplash.jpg"
 ---
 
-> This post was originally published in Spanish [here](https://thecocktail.engineering/agregando-apis-graphql-con-negron-3ba1a75d8440){:target="\_blank"}.
-
 Since Facebook open source GraphQL in 2015, the popularity of this specification didn't stop growing.
+
+> This post was originally published in Spanish [here](https://thecocktail.engineering/agregando-apis-graphql-con-negron-3ba1a75d8440){:target="\_blank"}.
 
 GraphQL is just a specification of a data language and has nothing to do with the protocol where it travels, existing as an alternative not only to a RESTful design of an HTTP API but as a possible contract for internal APIs within an application or any type of third-party libraries.
 
