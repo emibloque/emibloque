@@ -49,9 +49,9 @@ defaults:
     values:
       layout: "talk"
       image: /assets/images/talks/commit-conf.jpg
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-      image: /assets/images/projects/default.png
+  # - scope:
+  #     path: ""
+  #     type: "projects"
+  #   values:
+  #     layout: "project"
+  #     image: /assets/images/projects/default.png
