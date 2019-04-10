@@ -1,19 +1,7 @@
 ---
-layout: base
+layout: base-page
 ---
-<article class="b-page">
 
-  {%- if page.image -%}
-    <div class="header-image" style="background-image: url({{ page.image }}); {%- if page.image_x_position -%} background-position-x: {{ page.image_x_position }}; {%- endif -%}{%- if page.image_y_position -%} background-position-y: {{ page.image_y_position }}; {%- endif -%}"></div>
-  {%- endif -%}
+<h1 class="page-title" itemprop="name headline">{{ page.title | escape }}</h1>
 
-
-  <div class="content">
-
-    <div class="wrapper">
-      <h1>{{ page.title | escape }}</h1>
-      {{ content }}
-    </div>
-  </div>
-
-</article>
+{{ content }}

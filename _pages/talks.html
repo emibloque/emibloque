@@ -1,0 +1,21 @@
+---
+layout: page
+title: Talks
+permalink: /talks/
+---
+
+<ul class="b-posts-list">
+  {% for talk in site.talks reversed %}
+  <li class="post">
+    <h3 class="title">
+      <a href="{{ talk.url }}">{{ talk.title }}</a>
+    </h3>
+    <p class="excerpt">{{ talk.excerpt | strip_html }}</p>
+    <aside class="aside">
+      <span class="date">{{ talk.date | date: "%b %-d, %Y" }}</span>
+      •
+      <a href="{{ talk.entity_url }}" class="entity" target="_blank">{{ talk.entity }}</a>
+    </aside>
+  </li>
+  {% endfor %}
+</ul>

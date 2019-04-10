@@ -1,0 +1,368 @@
+$title-font: Georgia, "Times New Roman", Times, serif;
+
+@media print {
+  body[data-page="/resume/"] {
+    .b-main-footer,
+    .b-nav-header {
+      display: none;
+    }
+  }
+}
+
+.b-resume {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+  padding: 20px 0;
+  background: $background-color-alternate;
+
+  > .sheet {
+    flex: 0 0 auto;
+    margin: auto;
+    border-radius: 4px;
+    background: #fff;
+    height: 297mm;
+    width: 210mm;
+    padding: 8mm 15mm;
+    font-size: 9pt;
+    @include shadow();
+
+    * {
+      margin: 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    > .title {
+      .me {
+        display: flex;
+        align-items: center;
+
+        > .name {
+          font-family: $title-font;
+          flex: 1 1 auto;
+          font-size: 26pt;
+          line-height: 32pt;
+          margin: 0;
+
+          > .surname {
+            font-family: $title-font;
+            color: $grey-color;
+            font-style: italic;
+          }
+        }
+
+        > .portrait {
+          max-height: 23mm;
+          border-radius: 50%;
+        }
+      }
+
+      > .footer {
+        font-size: 7pt;
+        margin-top: -9pt;
+
+        > a {
+          margin-right: 4mm;
+          color: $brand-color-3;
+
+          .svg-icon {
+            height: 3mm;
+            width: 3mm;
+            fill: lighten($brand-color-3, 20%);
+          }
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    > .section-title {
+      font-family: $title-font;
+      display: flex;
+      align-items: baseline;
+      margin: 4mm 0 2mm 0;
+      color: $text-color;
+
+      > .line {
+        flex: 1;
+        margin-left: 1mm;
+        border-bottom: 0.3mm solid $text-color;
+      }
+    }
+
+    > .experience {
+      > .job {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2mm;
+
+        > .logo-wrapper {
+          flex: 0 0 auto;
+          width: 10mm;
+          height: 10mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        > .text {
+          flex: 1 1 auto;
+          > .header {
+            display: flex;
+            margin-bottom: 1mm;
+
+            > .title {
+              flex: 1 1 auto;
+              margin-left: 4mm;
+
+              > .company {
+                font-family: $title-font;
+                font-weight: bold;
+                font-size: 10pt;
+                color: $text-color;
+              }
+
+              > .position {
+                font-size: 9pt;
+                color: lighten($text-color, 30%);
+              }
+            }
+
+            .location {
+              font-size: 7pt;
+              text-align: right;
+              font-style: italic;
+              color: $brand-color-3;
+              margin-bottom: 1mm;
+            }
+
+            .period {
+              font-size: 7pt;
+              text-align: right;
+              font-style: italic;
+              color: lighten($text-color, 30%);
+            }
+          }
+
+          > .content {
+            margin-left: 4mm;
+            color: lighten($text-color, 30%);
+            font-size: 8pt;
+
+            > ul {
+              padding-left: 20px;
+              margin-bottom: 2mm;
+
+              em {
+                color: $text-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > .archived {
+      display: flex;
+      justify-content: space-around;
+
+      > .job {
+        text-align: center;
+
+        > .logo-wrapper {
+          width: 100%;
+          height: 7mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 1mm;
+
+          > .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        > .company {
+          font-family: $title-font;
+          font-weight: bold;
+          font-size: 9pt;
+          color: lighten($text-color, 20%);
+        }
+
+        > .position {
+          font-size: 8pt;
+          color: lighten($text-color, 20%);
+        }
+
+        > .period {
+          font-size: 7pt;
+          font-style: italic;
+          color: lighten($text-color, 40%);
+        }
+      }
+    }
+
+    > .education {
+      > .study {
+        display: flex;
+        align-items: flex-start;
+
+        > .logo-wrapper {
+          width: 10mm;
+          height: 10mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        > .title {
+          flex: 1 1 auto;
+          margin-left: 4mm;
+
+          > .entity {
+            font-family: $title-font;
+            font-weight: bold;
+            font-size: 10pt;
+            color: $text-color;
+          }
+
+          > .qualification {
+            font-size: 9pt;
+            color: lighten($text-color, 30%);
+          }
+        }
+
+        .location {
+          font-size: 7pt;
+          text-align: right;
+          font-style: italic;
+          color: $brand-color-3;
+          margin-bottom: 1mm;
+        }
+
+        .period {
+          font-size: 7pt;
+          text-align: right;
+          font-style: italic;
+          color: lighten($text-color, 30%);
+        }
+      }
+    }
+
+    > .talks {
+      > .talk {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.1mm;
+
+        > .logo-wrapper {
+          width: 10mm;
+          height: 3mm;
+          padding: 0 2mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        > .title {
+          flex: 1 1 auto;
+          margin: 0 4mm;
+          font-size: 8pt;
+          font-weight: bold;
+          color: lighten($text-color, 20%);
+
+          a {
+            color: inherit;
+          }
+
+          .entity {
+            font-weight: normal;
+            font-style: italic;
+            color: lighten($text-color, 30%);
+          }
+        }
+
+        > .location {
+          font-size: 7pt;
+          font-style: italic;
+          color: $brand-color-3;
+
+          > .date {
+            color: lighten($text-color, 30%);
+          }
+        }
+      }
+    }
+
+    > .side-projects {
+      > .project {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.1mm;
+
+        > .logo-wrapper {
+          width: 10mm;
+          height: 3mm;
+          padding: 0 2mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .logo {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        > .name {
+          flex: 1 1 auto;
+          margin: 0 4mm;
+          font-size: 8pt;
+          font-weight: bold;
+          color: lighten($text-color, 20%);
+
+          a {
+            color: inherit;
+          }
+
+          .description {
+            font-weight: normal;
+            font-style: italic;
+            color: lighten($text-color, 30%);
+          }
+        }
+
+        > .year {
+          font-size: 7pt;
+          font-style: italic;
+          color: lighten($text-color, 30%);
+        }
+      }
+    }
+  }
+}
+
+@media print {
+  .b-resume {
+    padding: 0;
+  }
+}
