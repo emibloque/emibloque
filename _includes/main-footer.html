@@ -5,8 +5,7 @@
       <div class="list">
         <h3 class="list-title">Latest posts</h3>
         <ul>
-          {% assign posts = site.posts | reverse %}
-          {%- for post in posts limit:2 -%}
+          {%- for post in site.posts limit:2 -%}
           <li>
             <h3 class="article-title">
               <a href="{{ post.url | relative_url }}">
