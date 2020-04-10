@@ -8,10 +8,16 @@ layout: base-page
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
+      •
+      <span title="Estimated read time">
+        {% assign words = content | number_of_words %}
+        {% if words < 360 %} 1 {% else %} {{ words | divided_by:180 }} {% endif %}
+        min read
+      </span>
       {% assign tags_size = page.tags | size %}
       {% if tags_size != 0 %} • {% endif %}
       {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
+      <span class="tag">{{ tag }}</span>
       {% endfor %}
     </p>
   </header>
