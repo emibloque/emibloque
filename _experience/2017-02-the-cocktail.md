@@ -7,8 +7,9 @@ location: Oviedo - Madrid, Spain
 ---
 
 - Provided training and guidance in best practices, standards, programming languages, and web architectures within a department of 80 engineers.
-- Led a team of 3 engineers within a customer-centric environment, ensuring the quality and delivery of the project.
-- Worked in the development of the company's technological offering, advising and landing opportunities with new clients.
+- Led teams of engineers within a customer-centric environment, ensuring the quality and delivery of the project.
+- Contributed to the company's technological offering, advising and landing opportunities with new clients.
+- Developed and maintained _Android_ applications with _Java_ and _Kotlin_.
 - Assisted in the setup and maintenance of Continous Integration and Continous Delivery pipelines using _Jenkins_, _Docker_, and _Kubernetes_, within providers as _Azure_, _Google Cloud Platform_, and _Amazon Web Services_.
 - Designed and developed a backend for frontend using _TypeScript_ and _NestJS_, consuming _Salesforce_ standard APIs and custom services.
 - Improved the metrics collection system in a chatbot app built with _Vue.js_ and _Node.js_ using _Dialogflow_, _Chatbase_, and _Datastore_.
