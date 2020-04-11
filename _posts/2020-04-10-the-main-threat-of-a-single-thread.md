@@ -14,6 +14,8 @@ When doing interviews with Node.js candidates at [The Cocktail](https://the-cock
 
 {% highlight javascript %}
 function longTask() {
+  // Imaging a task like processing each pixel of a very large image
+  // or sorting a large array
   for (let i = 0; i <= 10_000_000_000; i++) {}
 }
 
@@ -30,7 +32,7 @@ I found that some candidates have a common answer:
 
 > JavaScript is asynchronous, so there is nothing to worry about.
 
-This is kind of true for **I/O operations**, but not for **CPU intensive tasks**, and before getting into this I'd like to review some concepts.
+This is kind of true for **I/O operations** (calling a REST API, a database, reading a file...), but not for **CPU intensive tasks**, and before getting into this I'd like to review some concepts.
 
 ## Some background
 
@@ -44,11 +46,11 @@ The language specification, in the case of JavaScript, is the [ECMAScript® Lang
 
 Then, there are several engines that implement JavaScript, some of them are [Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino){:target="\_blank"}, [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore){:target="\_blank"}, [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey){:target="\_blank"} and [V8](https://v8.dev/){:target="\_blank"} (the engine Node.js uses).
 
-You may heard something about _the **Event Loop**_, but maybe, what you don't know is that the Event Loop is not part of the JavaScript specification. In fact, the Event Loop belongs to the [Web application APIs of the HTML specification](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops){:target="\_blank"}.
+You may have heard something about the [_**Event Loop**_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop){:target="\_blank"} – if not, I really recommend you to watch [this talk](https://www.youtube.com/watch?v=cCOL7MC4Pl0){:target="\_blank"} or [this one](https://www.youtube.com/watch?v=8aGhZQkoFbQ){:target="\_blank"} –, but maybe, what you don't know is that the Event Loop is not part of the JavaScript specification. In fact, the Event Loop belongs to the [Web application APIs of the HTML specification](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops){:target="\_blank"}.
 
 The ECMAScript specification talks about [execution contexts](https://tc39.es/ecma262/#sec-execution-contexts){:target="\_blank"}, [agents](https://tc39.es/ecma262/#sec-agents){:target="\_blank"} and the [executing thread](https://tc39.es/ecma262/#executing-thread){:target="\_blank"} of those agents, but nothing about an Event Loop.
 
-Finally, Node.js is a JavaScript runtime (using V8 underneath) which wasn't meant to run in within a browser, so it can avoid having an Event Loop. However, using an Event Loop was the [primary motivation to create Node.js](https://www.youtube.com/watch?v=F6k8lTrAE2g){:target="\_blank"}, in that talk you can see that each instance of Node.js has **only one thread**.
+Finally, Node.js is a JavaScript runtime (using V8 underneath) which wasn't meant to run in within a browser, so it can avoid having an Event Loop. However, using an Event Loop was the [primary motivation to create Node.js](https://www.youtube.com/watch?v=F6k8lTrAE2g){:target="\_blank"}, in that talk you can see that **each instance** of Node.js has **only one thread** – usually in production applications you'd use something like [PM2](https://pm2.keymetrics.io/){:target="\_blank"} in order to have more than one process of Node.js in the same machine.
 
 With that said, if we were to create a JavaScript runtime that doesn't have an Event Loop and runs in multiple threads, it would be a totally valid JavaScript runtime.
 
@@ -61,7 +63,7 @@ Imagine that we are in a kitchen and we need to chop some onions and some potato
 - In a **concurrent** execution, I chop some onions, then some potatoes, then again some onions, then some potatoes, and so forth. In no particular order.
 - In a **parallel** execution, I chop all the onions and **another person** chops all the potatoes, at the same time.
 
-In summary, for a concurrent execution to be parallel, it needs more than one unit of _processing_ (or _chopping_ in this example 😂). So, if our runtime only uses **one thread** to run our code, it can never be parallel.
+In summary, for a concurrent execution to be parallel, it needs more than one unit of _processing_ – or _chopping_ in this example 😂. So, if our runtime only uses **one thread** to run our code, it can never be parallel.
 
 ### Run-to-completion scheduling
 
@@ -79,7 +81,7 @@ Both have benefits and downsides:
 
 Erlang, for instance, uses _preemptive_ scheduling, and as you may guess from the question, Node.js uses _run-to-completion_ scheduling.
 
-We could achieve some kind of _preemptive_ scheduling in Node.js using [_task partitioning_](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/#partitioning){:target="\_blank"}, but it may not be a wise idea.
+We could achieve some kind of _preemptive_ scheduling in Node.js using [_task partitioning_](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/#partitioning){:target="\_blank"}, but that would make your code a lot harder to read.
 
 ### Synchronous vs asynchronous
 
@@ -224,8 +226,10 @@ For example, the main server will have the following code:
 {% highlight javascript %}
 app.get('/foo', () => {
   console.log('Request received')
+  // We don't await this call in order to avoid
+  // keeping open user connections waiting for a result
   https.get('https://another-service/longTask')
-  console.log('Request finished')
+  console.log('Request finished but task still running')
 })
 {% endhighlight %}
 
@@ -233,11 +237,15 @@ The server that will be blocked will be `another-service` (which we can scale as
 
 Note that we can use a message queue to communicate between services or background jobs, it is up to you.
 
+> Use Node.js Child Process
+
+This approach, with its benefits and downsides, is really well explained [here](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/#offloading){:target="\_blank"}.
+
 > Using Node.js Worker threads
 
 Ok, fine, I've hidden some information about Node.js threads 🙈. Since `v10.5.0` of Node.js we can use what is called [Worker threads](https://nodejs.org/api/worker_threads.html){:target="\_blank"}, in browsers we have something similar called [WebWorkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers){:target="\_blank"}.
 
-Using a worker thread, we can offload the execution of this task to another process within the same machine.
+Using a worker thread, we can offload the execution of this task to another thread (sharing memory space) within the same machine.
 
 ## Final thoughts
 
