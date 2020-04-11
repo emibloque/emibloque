@@ -32,7 +32,7 @@ I found that some candidates have a common answer:
 
 > JavaScript is asynchronous, so there is nothing to worry about.
 
-This is kind of true for **I/O operations** (calling a REST API, a database, reading a file...), but not for **CPU intensive tasks**, and before getting into this I'd like to review some concepts.
+This is kind of true for **I/O operations** (calling a REST API, a database, reading a file...), but not for **CPU-bound tasks**, and before getting into this I'd like to review some concepts.
 
 ## Some background
 
@@ -77,7 +77,7 @@ Using the example above, the difference will be the following:
 Both have benefits and downsides:
 
 - If I have too many onions, with **run-to-completion** my colleagues will have to wait too long to have potatoes ready to cook.
-- But with **preemptive** scheduling, I will have to worry about using different tables and knives to chop each item (no shared memory between processes) or cleaning them each time and be extremely careful.
+- But with **preemptive** scheduling, I will have to worry about using different tables and knives to chop each item (no shared memory between processes) or cleaning them each time and being extremely careful.
 
 Erlang, for instance, uses _preemptive_ scheduling, and as you may guess from the question, Node.js uses _run-to-completion_ scheduling.
 
@@ -219,7 +219,7 @@ To solve this problem, we need to offload the computation of `longTask` to the b
 
 > Transform the operation to an external I/O call
 
-If we implement this function as a background job or another _service_, we can transform a CPU intensive call to an I/O call.
+If we implement this function as a background job or another _service_, we can transform CPU-bound work to an I/O call.
 
 For example, the main server will have the following code:
 
@@ -249,6 +249,6 @@ Using a worker thread, we can offload the execution of this task to another thre
 
 ## Final thoughts
 
-Usually, in the majority of programs that we write, it's hard to reach a situation where we accidentally block the main thread with a CPU intensive task.
+Usually, in the majority of programs that we write, it's hard to reach a situation where we accidentally block the main thread with a CPU-intensive task.
 
 However, I hope this article helps you in the future finding possible bottlenecks or slowdowns in your web server or frontend application.
