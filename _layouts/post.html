@@ -1,11 +1,11 @@
 ---
 layout: base-page
 ---
-<article class="b-post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="b-post">
   <header>
-    <h1 class="page-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <h1 class="page-title">{{ page.title | escape }}</h1>
     <p class="date">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      <time>
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
       •
@@ -22,9 +22,7 @@ layout: base-page
     </p>
   </header>
 
-  <div class="e-content" itemprop="articleBody">
+  <div class="e-content">
     {{ content }}
   </div>
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
