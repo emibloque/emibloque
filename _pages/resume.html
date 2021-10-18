@@ -49,11 +49,13 @@ permalink: /resume/
         {% unless job.archive %}
         <section class="job">
           <div class="logo-wrapper">
+            {% if job.company_logo %}
             <img
               class="logo"
               src="{{ job.company_logo }}"
               alt="{{ job.company }}"
             />
+            {% endif %}
           </div>
           <div class="text">
             <header class="header">
@@ -117,6 +119,8 @@ permalink: /resume/
       </section>
       {% endfor %}
     </section>
+
+    <div class="page-break"></div>
 
     <h2 class="section-title">Talks<span class="line"></span></h2>
     <section class="talks">

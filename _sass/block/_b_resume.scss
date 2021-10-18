@@ -22,9 +22,9 @@ $title-font: Georgia, "Times New Roman", Times, serif;
     margin: auto;
     border-radius: 4px;
     background: #fff;
-    height: 297mm;
+    min-height: 297mm;
     width: 210mm;
-    padding: 8mm 15mm;
+    padding: 5mm 8mm;
     font-size: 9pt;
     @include shadow();
 
@@ -53,7 +53,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         }
 
         > .portrait {
-          max-height: 23mm;
+          max-height: 20mm;
           border-radius: 50%;
         }
       }
@@ -364,5 +364,9 @@ $title-font: Georgia, "Times New Roman", Times, serif;
 @media print {
   .b-resume {
     padding: 0;
+  }
+  .page-break {
+    height: 8mm;
+    page-break-before: always;
   }
 }
