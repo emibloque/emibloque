@@ -14,7 +14,7 @@ One of my greatest passions is to play Rink Hockey (in Spanish _Hockey Sobre Pat
 
 I'm a self-employed software engineer. I dedicate the major part of my time communicating and teaching best practices, managing teams, or writing some code in a variety of languages.
 
-Also, I'm an adjunt professor in the [Department of Computer Science](http://www.di.uniovi.es/) at the [University of Oviedo](http://www.uniovi.es/).
+Also, I'm an adjunct professor in the [Department of Computer Science](http://www.di.uniovi.es/) at the [University of Oviedo](http://www.uniovi.es/).
 
 You can find more information about me in [my resume page](/resume).
 
