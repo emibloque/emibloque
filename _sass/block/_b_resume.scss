@@ -382,6 +382,9 @@ $title-font: Georgia, "Times New Roman", Times, serif;
           .name {
             font-size: 2.5em;
             margin-bottom: .5em;
+            .surname {
+              display: block;
+            }
           }
         }
 
