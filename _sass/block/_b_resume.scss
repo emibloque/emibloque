@@ -13,9 +13,9 @@ $title-font: Georgia, "Times New Roman", Times, serif;
   height: 100%;
   display: flex;
   align-items: center;
-  overflow: scroll;
   padding: 20px 0;
   background: $background-color-alternate;
+  font-size: 9pt;
 
   > .sheet {
     flex: 0 0 auto;
@@ -23,9 +23,8 @@ $title-font: Georgia, "Times New Roman", Times, serif;
     border-radius: 4px;
     background: #fff;
     min-height: 297mm;
-    width: 210mm;
-    padding: 5mm 8mm;
-    font-size: 9pt;
+    width: min(100%, 210mm);
+    padding: 5mm 8mm;;
     @include shadow();
 
     * {
@@ -41,8 +40,8 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         > .name {
           font-family: $title-font;
           flex: 1 1 auto;
-          font-size: 26pt;
-          line-height: 32pt;
+          font-size: 3.5em;
+          line-height: 1em;
           margin: 0;
 
           > .surname {
@@ -59,7 +58,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
       }
 
       > .footer {
-        font-size: 7pt;
+        font-size: .9em;
         margin-top: -9pt;
 
         > a {
@@ -83,7 +82,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
       font-family: $title-font;
       display: flex;
       align-items: baseline;
-      margin: 3mm 0 2mm 0;
+      margin: 2mm 0 2mm 0;
       color: $text-color;
 
       > .line {
@@ -115,29 +114,28 @@ $title-font: Georgia, "Times New Roman", Times, serif;
 
         > .text {
           flex: 1 1 auto;
+          margin-left: 4mm;
           > .header {
             display: flex;
             margin-bottom: 1mm;
 
             > .title {
               flex: 1 1 auto;
-              margin-left: 4mm;
 
               > .company {
                 font-family: $title-font;
                 font-weight: bold;
-                font-size: 10pt;
+                font-size: 1.1em;
                 color: $text-color;
               }
 
               > .position {
-                font-size: 9pt;
                 color: lighten($text-color, 30%);
               }
             }
 
             .location {
-              font-size: 7pt;
+              font-size: .8em;
               text-align: right;
               font-style: italic;
               color: $brand-color-3;
@@ -145,7 +143,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
             }
 
             .period {
-              font-size: 7pt;
+              font-size: .8em;
               text-align: right;
               font-style: italic;
               color: lighten($text-color, 30%);
@@ -153,9 +151,8 @@ $title-font: Georgia, "Times New Roman", Times, serif;
           }
 
           > .content {
-            margin-left: 4mm;
             color: lighten($text-color, 30%);
-            font-size: 8pt;
+            font-size: .9em;
 
             > ul {
               padding-left: 20px;
@@ -194,17 +191,16 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         > .company {
           font-family: $title-font;
           font-weight: bold;
-          font-size: 9pt;
           color: lighten($text-color, 20%);
         }
 
         > .position {
-          font-size: 8pt;
+          font-size: .95em;
           color: lighten($text-color, 20%);
         }
 
         > .period {
-          font-size: 7pt;
+          font-size: .8em;
           font-style: italic;
           color: lighten($text-color, 40%);
         }
@@ -236,18 +232,17 @@ $title-font: Georgia, "Times New Roman", Times, serif;
           > .entity {
             font-family: $title-font;
             font-weight: bold;
-            font-size: 10pt;
+            font-size: 1.1em;
             color: $text-color;
           }
 
           > .qualification {
-            font-size: 9pt;
             color: lighten($text-color, 30%);
           }
         }
 
         .location {
-          font-size: 7pt;
+          font-size: .8em;
           text-align: right;
           font-style: italic;
           color: $brand-color-3;
@@ -255,7 +250,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         }
 
         .period {
-          font-size: 7pt;
+          font-size: .8em;
           text-align: right;
           font-style: italic;
           color: lighten($text-color, 30%);
@@ -286,7 +281,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         > .title {
           flex: 1 1 auto;
           margin: 0 4mm;
-          font-size: 8pt;
+          font-size: .9em;
           font-weight: bold;
           color: lighten($text-color, 20%);
 
@@ -302,7 +297,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         }
 
         > .location {
-          font-size: 7pt;
+          font-size: .8em;
           font-style: italic;
           color: $brand-color-3;
 
@@ -336,7 +331,7 @@ $title-font: Georgia, "Times New Roman", Times, serif;
         > .name {
           flex: 1 1 auto;
           margin: 0 4mm;
-          font-size: 8pt;
+          font-size: .9em;
           font-weight: bold;
           color: lighten($text-color, 20%);
 
@@ -348,13 +343,111 @@ $title-font: Georgia, "Times New Roman", Times, serif;
             font-weight: normal;
             font-style: italic;
             color: lighten($text-color, 30%);
+
+            em {
+              color: $text-color;
+            }
           }
         }
 
         > .year {
-          font-size: 7pt;
+          font-size: .8em;
           font-style: italic;
           color: lighten($text-color, 30%);
+        }
+      }
+    }
+  }
+}
+
+@include media-query($on-palm) {
+  .b-resume {
+    > .sheet {
+      > .experience {
+        > .job {
+          flex-direction: column;
+          > .logo-wrapper {
+            display: none;
+          }
+
+          > .text {
+            margin-left: 0;
+          }
+        }
+      }
+
+
+      > .title {
+        .me {
+          .name {
+            font-size: 2.5em;
+            margin-bottom: .5em;
+          }
+        }
+
+        > .footer {
+          > a {
+            display: block;
+          }
+        }
+      }
+
+      > .education {
+        > .study {
+          > .logo-wrapper {
+            display: none;
+          }
+          > .title {
+            margin-left: 0;
+          }
+        }
+      }
+
+      > .archived {
+        flex-direction: column;
+        align-items: flex-start;
+
+        > .job {
+          text-align: left;
+          margin-bottom: 1em;
+          > .logo-wrapper {
+            display: none;
+          }
+        }
+      }
+
+      > .talks {
+        > .talk {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 1em;
+
+          .logo-wrapper {
+            display: none;
+          }
+          .title {
+            margin: 0;
+            .entity {
+              display: block;
+            }
+          }
+        }
+      }
+
+      > .side-projects {
+        > .project {
+          margin-bottom: 1em;
+
+          .name {
+            margin: 0;
+            .description {
+              display: block;
+            }
+          }
+
+          .logo-wrapper, .year {
+            display: none;
+          }
         }
       }
     }
@@ -364,7 +457,12 @@ $title-font: Georgia, "Times New Roman", Times, serif;
 @media print {
   .b-resume {
     padding: 0;
+
+    > .sheet {
+      box-shadow: none;
+    }
   }
+
   .page-break {
     height: 8mm;
     page-break-before: always;

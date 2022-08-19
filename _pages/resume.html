@@ -159,7 +159,7 @@ permalink: /resume/
 
         <h3 class="name">
           {{ project.title }}
-          <span class="description">{{ project.description }}</span>
+          <span class="description">{{ project.content | remove: '<p>' | remove: '</p>' }}</span>
         </h3>
 
         <aside class="year">
