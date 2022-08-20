@@ -3,7 +3,7 @@ company: Self-Employed
 company_logo: /assets/favicon.png
 position: Software Engineer
 period: Jul. 2020 - Current
-location: Oviedo
+location: Oviedo, Spain
 ---
 
 - Provided software engineering consultancy and development on a project-basis for several companies.
